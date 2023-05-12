@@ -115,7 +115,7 @@ def test_transform_code_syntax():
     except SyntaxError:
         is_valid = False
 
-    assert is_valid is True
+    assert is_valid
 
 
 def test_transform_and_replace_references():

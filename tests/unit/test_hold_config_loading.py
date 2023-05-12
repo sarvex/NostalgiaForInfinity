@@ -85,11 +85,7 @@ def test_move_old_hold_trades(strategy, caplog, testdatadir):
     hold_trade_file.write_text(json.dumps({"trade_ids": {"1": 0.0035}}))
     with caplog.at_level(logging.WARNING, "NostalgiaForInfinityNext"):
         strategy.load_hold_trades_config()
-    expected_log_message = (
-        "Please move {} to {} which is now the expected path for the holds file".format(
-            hold_trade_file, testdatadir.resolve() / "nfi-hold-trades.json"
-        )
-    )
+    expected_log_message = f'Please move {hold_trade_file} to {testdatadir.resolve() / "nfi-hold-trades.json"} which is now the expected path for the holds file'
     assert expected_log_message in caplog.text
 
 
@@ -111,11 +107,7 @@ def test_move_old_hold_trades_symlinked_strat(
     hold_trade_file.write_text(json.dumps({"trade_ids": {"1": 0.0035}}))
     with caplog.at_level(logging.WARNING, "NostalgiaForInfinityNext"):
         symlink_strat_no_config.load_hold_trades_config()
-    expected_log_message = (
-        "Please move {} to {} which is now the expected path for the holds file".format(
-            hold_trade_file, testdatadir.resolve() / "nfi-hold-trades.json"
-        )
-    )
+    expected_log_message = f'Please move {hold_trade_file} to {testdatadir.resolve() / "nfi-hold-trades.json"} which is now the expected path for the holds file'
     assert expected_log_message in caplog.text
 
 

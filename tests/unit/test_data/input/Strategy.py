@@ -16,10 +16,6 @@ class Strategy(IStrategy):
     buy_33_volume = DecimalParameter(0.6, 6.0, default=2.0, space='buy', decimals=1, optimize=False, load=True)
 
     def populate_buy_trend(self, dataframe: DataFrame, metadata: dict) -> DataFrame:
-        if (self.buy_32_ma_offset.value > self.buy_33_ma_offset.value) and (self.buy_33_cti.value < self.buy_33_ewo.value):
-            pass
-        elif (self.buy_33_rsi.value < self.buy_33_volume.value) or (self.buy_33_ewo.value > self.buy_33_rsi.value):
-            pass
         return super().populate_buy_trend(dataframe, metadata)
 
     def populate_sell_trend(self, dataframe: DataFrame, metadata: dict) -> DataFrame:

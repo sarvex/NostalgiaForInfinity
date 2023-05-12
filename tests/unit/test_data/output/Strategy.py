@@ -16,10 +16,6 @@ class Strategy(IStrategy):
     buy_33_volume = 2.0
 
     def populate_buy_trend(self, dataframe: DataFrame, metadata: dict) -> DataFrame:
-        if (self.buy_32_ma_offset > self.buy_33_ma_offset) and (self.buy_33_cti < self.buy_33_ewo):
-            pass
-        elif (self.buy_33_rsi < self.buy_33_volume) or (self.buy_33_ewo > self.buy_33_rsi):
-            pass
         return super().populate_buy_trend(dataframe, metadata)
 
     def populate_sell_trend(self, dataframe: DataFrame, metadata: dict) -> DataFrame:

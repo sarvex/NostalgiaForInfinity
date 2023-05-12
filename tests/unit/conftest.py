@@ -331,7 +331,7 @@ def default_conf(testdatadir):
 
 def get_default_conf(testdatadir):
     """Returns validated configuration suitable for most tests"""
-    configuration = {
+    return {
         "max_open_trades": 1,
         "stake_currency": "USDT",
         "stake_amount": 0.001,
@@ -347,7 +347,10 @@ def get_default_conf(testdatadir):
             "ask_last_balance": 0.0,
             "use_order_book": False,
             "order_book_top": 1,
-            "check_depth_of_market": {"enabled": False, "bids_to_ask_delta": 1},
+            "check_depth_of_market": {
+                "enabled": False,
+                "bids_to_ask_delta": 1,
+            },
         },
         "ask_strategy": {
             "use_order_book": False,
@@ -382,7 +385,6 @@ def get_default_conf(testdatadir):
         "internals": {},
         "export": "none",
     }
-    return configuration
 
 
 def generate_mock_trade(
